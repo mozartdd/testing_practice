@@ -1,5 +1,5 @@
-import test1 from './script' ;
+import {capitalize} from "./script";
 
-test('test', () => {
-  expect(test1()).toBe(5);
+test('Expects parameter input "jack" to return "Jack"', () => {
+  expect(capitalize('jack')).toBe('Jack');
 });

@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "repository": {
-    "type": "git",
+    "type": "module",
     "url": "git+https://github.com/mozartdd/testing_practice.git"
   },
   "keywords": [],
