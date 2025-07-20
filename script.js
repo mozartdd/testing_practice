@@ -4,3 +4,6 @@ export function capitalize(str) {
   return firstLetter + strTail;
 }
 
+export function reverseString(str) {
+  return str.split('').reverse('').join('');
+}
