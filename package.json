@@ -1,0 +1,26 @@
+{
+  "name": "testing_practice",
+  "version": "1.0.0",
+  "description": "Simple TDD practice repository which i made as part of Odin project asignment.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mozartdd/testing_practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mozartdd/testing_practice/issues"
+  },
+  "homepage": "https://github.com/mozartdd/testing_practice#readme",
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "babel-jest": "^30.0.4",
+    "jest": "^30.0.4"
+  }
+}
