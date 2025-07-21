@@ -1,7 +1,7 @@
 // Helper function to validate input for calculator obj functions
 function validateNumbers(a, b) {
   if (typeof a !== 'number' && typeof b !== 'number') {
-    throw new Error('Both input values must be numbers.');
+    throw new Error('Input value must be number.');
   }
 };
 
@@ -45,48 +45,45 @@ export const calculator = {
   }
 }
 
+// Convert each char of user input to ascii code 
+// If lowercase do [(Code - 65 + cipher) % 26 + 65] else if uppercase do [(Code - 97 + cipher) % 26 + 97] - get it's new position in ascii table
+// Convert each char back to letter using it's ascii code and combine them in to single string
+
 function convertToAscii(str) {
-  const arrayOfChars = str.split('');
-  for (let i = 0; i < arrayOfChars.length; i++) {
-    if (arrayOfChars[i] === '') {
-      continue;
-    } else {
-      arrayOfChars[i] = arrayOfChars[i].charCodeAt(0);
-    }
+  const arrayOfAscii = str.split('');
+
+  for (let i = 0; i < arrayOfAscii.length; i++) {
+    arrayOfAscii[i] = arrayOfAscii[i].charCodeAt(0);
   }
-  return arrayOfChars;
+  return arrayOfAscii;
 }
 
-function getNewPosition(arrayOfChars, cipher) {
-  const newArrayOfChars = [];
-  for (let i = 0; i < arrayOfChars.length; i++) {
+function getNewPosition(arrayOfAscii, cipher) {
+  const newArrayOfAscii = [];
+
+  for (let i = 0; i < arrayOfAscii.length; i++) {
     // If uppercase
-    if (arrayOfChars[i] < 91 && arrayOfChars[i] > 64) {
-      newArrayOfChars[i] = (arrayOfChars[i] - 65 + cipher) % 26 + 65;
+    if (arrayOfAscii[i] < 91 && arrayOfAscii[i] > 64) {
+      newArrayOfAscii[i] = (arrayOfAscii[i] - 65 + cipher) % 26 + 65;
       // If lowercase
-    } else if (arrayOfChars[i] < 123 && arrayOfChars[i] > 96) {
-      newArrayOfChars[i] = (arrayOfChars[i] - 97 + cipher) % 26 + 97;
+    } else if (arrayOfAscii[i] < 123 && arrayOfAscii[i] > 96) {
+      newArrayOfAscii[i] = (arrayOfAscii[i] - 97 + cipher) % 26 + 97;
       // Else if punctuation or space
-    } else newArrayOfChars[i] = arrayOfChars[i];
+    } else newArrayOfAscii[i] = arrayOfAscii[i];
   }
-  return newArrayOfChars;
+  return newArrayOfAscii;
 }
 
 export function caesarCipher(str, cipher) {
   validateString(str);
   validateNumbers(cipher);
-  let arrayOfChars = convertToAscii(str);
-  let movedArrayOfChars = getNewPosition(arrayOfChars, cipher);
+
+  let arrayOfAscii = convertToAscii(str);
+  let movedArrayOfAscii = getNewPosition(arrayOfAscii, cipher);
   let encipheredString = '';
 
-  for (let i = 0; i < movedArrayOfChars.length; i++) {
-    encipheredString += String.fromCharCode(movedArrayOfChars[i]);
+  for (let i = 0; i < movedArrayOfAscii.length; i++) {
+    encipheredString += String.fromCharCode(movedArrayOfAscii[i]);
   }
   return encipheredString;
 }
-
-
-
-// Convert each char of user input if it is a letter to ascii code 
-// if lowercase do [(Code - 65) % 26 + 65] if uppercase do [(Code - 97) % 26 + 97] - get it's new position in ascii table
-// Convert each char back to letter using it's ascii code
