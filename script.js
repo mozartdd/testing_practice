@@ -87,3 +87,15 @@ export function caesarCipher(str, cipher) {
   }
   return encipheredString;
 }
+
+export function analyzeArray(array) {
+  const sum = array.reduce((total, current) =>  total + current, 0);
+  const sorted = array.sort((a, b) => a - b);
+
+  const average = sum / array.length;
+  const min = sorted[0];
+  const max = sorted[sorted.length - 1];
+  const length = array.length;
+
+  return {average, min, max, length}
+}

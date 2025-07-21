@@ -44,7 +44,7 @@ test('Ciphered \'Hello, World!\' of 3 turns should return \'Khoor, Zruog\'', () 
 const object = analyzeArray([1,8,3,4,2,6]);
 
 // Test to analyze function which takes in array of numbers and return it average, min, max and length
-test('test', () => {
+test('const object = analyzeArray([1,8,3,4,2,6]) = average: 4, min: 1, max: 8, length: 6.', () => {
   expect(object).toStrictEqual(
     {
       average: 4,
