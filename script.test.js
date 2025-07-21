@@ -1,4 +1,10 @@
-import { capitalize, reverseString, calculator, caesarCipher, analyzeArray } from "./script";
+import { 
+  capitalize, 
+  reverseString, 
+  calculator, 
+  caesarCipher, 
+  analyzeArray 
+} from "./script";
 
 // Test for capitalize function
 test('Expects parameter input "jack" to return "Jack"', () => {

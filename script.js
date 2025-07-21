@@ -89,12 +89,20 @@ export function caesarCipher(str, cipher) {
 }
 
 export function analyzeArray(array) {
+  if (!array || array.length === 0) {
+    return {
+      average: 0,
+      min: 0,
+      max: 0,
+      length: 0,
+    }
+  }
+
   const sum = array.reduce((total, current) =>  total + current, 0);
-  const sorted = array.sort((a, b) => a - b);
 
   const average = sum / array.length;
-  const min = sorted[0];
-  const max = sorted[sorted.length - 1];
+  const min = Math.min(...array);
+  const max = Math.max(...array);
   const length = array.length;
 
   return {average, min, max, length}
