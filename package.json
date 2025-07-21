@@ -4,7 +4,8 @@
   "description": "Simple TDD practice repository which i made as part of Odin project asignment.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "watch": "jest --watch *.js"
   },
   "repository": {
     "type": "git",

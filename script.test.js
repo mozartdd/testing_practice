@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator } from "./script";
+import { capitalize, reverseString, calculator, caesarCipher } from "./script";
 
 // Test for capitalize function
 test('Expects parameter input "jack" to return "Jack"', () => {
@@ -25,7 +25,19 @@ test('7 - 3 = 4', () => {
 });
 test('5 / 2 = 2.50', () => {
   expect(calculator.divide(5, 2)).toBeCloseTo(2.5);
-})
+});
 test('5 * 5 = 25', () => {
   expect(calculator.multiply(5, 5)).toEqual(25);
-})
+});
+
+// Test for caesar cypher program
+test('Ciphered \'xyz\' of 3 turns should return \'abc\'', () => {
+  expect(caesarCipher('xyz', 3)).toBe('abc');
+});
+test('Ciphered \'HeLLo\' of 3 turns should return \'KhOOr\'', () => {
+  expect(caesarCipher('HeLLo', 3)).toBe('KhOOr');
+});
+test('Ciphered \'Hello, World!\' of 3 turns should return \'Khoor, Zruog\'', () => {
+  expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!');
+});
+
